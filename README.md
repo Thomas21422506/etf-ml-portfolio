@@ -33,68 +33,45 @@ This data science course project implements a machine learning-based weekly allo
 - **pip** package manager
 - **10-20 minutes** for first-time setup and execution
 
-### Installation (Windows)
+## Installation
 
-1. **Download and extract** the project ZIP
+### Prerequisites
 
-2. **Open in VS Code**:
-   - Right-click on folder → "Open with Code"
-   - Or: `File > Open Folder`
+- **Python 3.10+** installed on your system
+- **pip** package manager
+- **10-20 minutes** for first-time setup and execution
 
-3. **Open terminal** in VS Code:
-   - Press `Ctrl + `` ` (backtick)
-   - Or: `View > Terminal`
+### Setup Instructions
 
-4. **Run installation script**:
-```cmd
-   install_and_run.bat
-```
-   
-   This will:
-   - Create virtual environment
-   - Install all dependencies
-   - Generate results (~10-15 min)
-   - Launch dashboard automatically
-
-5. **Open dashboard** in browser:
-```
-   http://localhost:8501
-```
-
-### Installation (Linux/Mac)
-
-1. **Extract the project**:
+1. **Clone or download** the repository:
 ```bash
-   unzip projet_etf_ml.zip
-   cd projet_etf_ml
+   git clone https://github.com/Thomas21422506/etf-ml-portfolio.git
+   cd etf-ml-portfolio
 ```
 
-2. **Run installation script**:
+
+2. **Install dependencies**:
 ```bash
-   chmod +x setup.sh
-   ./setup.sh
+   pip install -r requirements.txt
 ```
 
-3. **Launch dashboard**:
+3. **Generate results**:
+```bash
+   python main.py or python3 main.py
+```
+   **Note**: Close pop-up chart windows (press Q or click X) to continue execution.
+
+5. **Launch dashboard**:
 ```bash
    streamlit run dashboard.py
 ```
+   The dashboard opens automatically at `http://localhost:8501`
 
-### Manual Installation (All Platforms)
+### Quick Install (one command)
 
-If automated scripts fail:
 ```bash
-# 1. Create virtual environment
-python -m venv venv
-
-# 2. Activate environment
-# Windows:
-venv\Scripts\activate
-# Linux/Mac:
-source venv/bin/activate
-
-# 3. Upgrade pip
-python -m pip install --upgrade pip
+pip install -r requirements.txt && python main.py && streamlit run dashboard.py
+```
 
 # 4. Install dependencies
 pip install pandas
@@ -488,12 +465,6 @@ Use the sidebar on the left to navigate between sections. Each page builds on th
 - GitHub: https://github.com/Thomas21422506/etf-ml-portfolio
 - Dashboard: `streamlit run dashboard.py`
 - Full Report: Available in repository
-
----
-
-## License
-
-This project is an academic work for educational purposes.
 
 ---
 

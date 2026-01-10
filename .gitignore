@@ -43,8 +43,3 @@ outputs/figures/*.png
 outputs/figures/*.jpg
 *.zip
 
-# Data 
-data/DATA_PRICE_FINAL.csv
-
-# Results 
-outputs/results/*.csv
