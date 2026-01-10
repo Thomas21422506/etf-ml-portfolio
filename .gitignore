@@ -38,8 +38,5 @@ ENV/
 Thumbs.db
 desktop.ini
 
-# Project specific
-outputs/figures/*.png
-outputs/figures/*.jpg
-*.zip
+
 

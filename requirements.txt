@@ -20,5 +20,3 @@ streamlit>=1.28.0
 # Scientific Computing
 scipy>=1.11.0
 
-
----
