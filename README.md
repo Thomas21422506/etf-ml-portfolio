@@ -57,23 +57,23 @@ This data science course project implements a machine learning-based weekly allo
 
 3. **Generate results**:
 ```bash
-   python main.py or python3 main.py
+   python main.py 
+   #or 
+   python3 main.py
 ```
    **Note**: Close pop-up chart windows (press Q or click X) to continue execution.
 
 5. **Launch dashboard**:
 ```bash
    streamlit run dashboard.py
+   #or
+   python -m streamlit run dashboard.py
 ```
    The dashboard opens automatically at `http://localhost:8501`
+**First time**: Streamlit may prompt for an email address - simply press `Enter` to skip
 
-### Quick Install (one command)
 
-```bash
-pip install -r requirements.txt && python main.py && streamlit run dashboard.py
-```
-
-# 4. Install dependencies
+# 4. Or install dependencies list separately 
 pip install pandas
 pip install numpy
 pip install scikit-learn
@@ -84,16 +84,7 @@ pip install streamlit
 pip install plotly
 pip install scipy
 
-# Or use requirements.txt:
-pip install -r requirements.txt
 
-# 5. Generate results
-python main.py
-# Note: Close any pop-up chart windows (press Q or click X) to continue execution
-
-# 6. Launch dashboard
-streamlit run dashboard.py
-```
 
 ---
 
@@ -105,10 +96,8 @@ When running `python main.py`, the pipeline generates several visualization char
 
 - Charts include: model performance comparisons, portfolio evolution, walk-forward results, etc.
 - **How to close**: Click the X button on the window or press `Q`
-- The terminal will show a message indicating it's waiting for you to close the chart
 - Once closed, the pipeline continues automatically to the next step
 
-**Tip**: If you prefer to skip chart displays and only generate saved PNG files, you can modify the chart generation functions in the code to use `plt.savefig()` without `plt.show()`.
 
 ### First-Time Execution Time
 
@@ -120,12 +109,6 @@ When running `python main.py`, the pipeline generates several visualization char
   - Walk-forward validation (15 rolling windows)
   - Generating and saving visualization charts
 
-### Dashboard Launch
-
-When launching the dashboard with `streamlit run dashboard.py`:
-- **First time**: Streamlit may prompt for an email address - simply press `Enter` to skip
-- Dashboard opens automatically at `http://localhost:8501`
-- If port 8501 is busy, use: `streamlit run dashboard.py --server.port 8502`
 
 ---
 
@@ -307,17 +290,6 @@ etf-ml-portfolio/
 
 ---
 
-## Dashboard Features
-
-Launch the interactive dashboard:
-```bash
-streamlit run dashboard.py
-```
-
-The dashboard will automatically open in your default browser at `http://localhost:8501`
-
-**First Launch**: When running Streamlit for the first time, you'll be prompted for an email address. This is optional—simply press `Enter` to skip and proceed to the dashboard.
-
 ### Dashboard Pages
 
 **6 Interactive Sections**:
@@ -396,7 +368,6 @@ Use the sidebar on the left to navigate between sections. Each page builds on th
 
 ---
 
-## Academic Contribution
 
 ### What This Project Demonstrates
 
