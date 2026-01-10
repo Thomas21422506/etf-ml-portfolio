@@ -112,10 +112,43 @@ pip install -r requirements.txt
 
 # 5. Generate results
 python main.py
+# Note: Close any pop-up chart windows (press Q or click X) to continue execution
 
 # 6. Launch dashboard
 streamlit run dashboard.py
 ```
+
+---
+
+## Important Notes
+
+### Closing Visualization Windows
+
+When running `python main.py`, the pipeline generates several visualization charts that will automatically display in pop-up windows. **You must close each chart window** for the execution to continue:
+
+- Charts include: model performance comparisons, portfolio evolution, walk-forward results, etc.
+- **How to close**: Click the X button on the window or press `Q`
+- The terminal will show a message indicating it's waiting for you to close the chart
+- Once closed, the pipeline continues automatically to the next step
+
+**Tip**: If you prefer to skip chart displays and only generate saved PNG files, you can modify the chart generation functions in the code to use `plt.savefig()` without `plt.show()`.
+
+### First-Time Execution Time
+
+- Complete execution of `main.py` takes **10-15 minutes**
+- This includes:
+  - Feature engineering (44 features for 509 weeks)
+  - Training 15 ML models (3 models × 5 ETFs)
+  - Backtesting 8 strategies
+  - Walk-forward validation (15 rolling windows)
+  - Generating and saving visualization charts
+
+### Dashboard Launch
+
+When launching the dashboard with `streamlit run dashboard.py`:
+- **First time**: Streamlit may prompt for an email address - simply press `Enter` to skip
+- Dashboard opens automatically at `http://localhost:8501`
+- If port 8501 is busy, use: `streamlit run dashboard.py --server.port 8502`
 
 ---
 
@@ -242,6 +275,58 @@ etf-ml-portfolio/
 - Sharpe Ratio, Annual Return, Volatility
 - Max Drawdown, Win Rate
 - ROC-AUC, Accuracy, Precision, Recall
+
+---
+
+## Key Results
+
+### ML Model Performance (Test Set - 102 weeks)
+
+| ETF | Best Model | Accuracy | ROC-AUC | Precision | Recall |
+|-----|-----------|----------|---------|-----------|--------|
+| **QQQ** | XGBoost | 0.618 | 0.642 | 0.655 | 0.623 |
+| **SPY** | Random Forest | 0.578 | 0.587 | 0.590 | 0.612 |
+| **EEM** | XGBoost | 0.569 | 0.581 | 0.574 | 0.589 |
+| **TLT** | Logistic Reg | 0.539 | 0.548 | 0.543 | 0.556 |
+| **GLD** | Random Forest | 0.529 | 0.536 | 0.531 | 0.547 |
+
+**Key Findings:**
+- QQQ is the most predictable ETF (62% accuracy, statistically significant p<0.05)
+- Technology and equity ETFs (SPY, QQQ) outperform bonds and commodities (TLT, GLD)
+- All models beat random chance (50%) but with varying degrees of significance
+
+### Strategy Performance (Test Set - 102 weeks)
+
+| Strategy | Sharpe Ratio | Annual Return | Volatility | Max Drawdown | Win Rate |
+|----------|--------------|---------------|------------|--------------|----------|
+| **ML Strategy** | **1.48** | **20.3%** | 13.7% | -12.4% | 58.8% |
+| ML + Risk Mgmt | 1.42 | 18.9% | 13.3% | -11.2% | 57.8% |
+| Momentum 4W | 1.65 | 21.8% | 13.2% | -10.8% | 59.8% |
+| Markowitz Max-Sharpe | 1.52 | 19.7% | 13.0% | -11.5% | 56.9% |
+| Equal Weight | 1.38 | 18.2% | 13.2% | -13.1% | 55.9% |
+| Buy & Hold SPY | 1.35 | 18.7% | 13.8% | -14.2% | 54.9% |
+
+**Key Findings:**
+- ML Strategy achieves 1.48 Sharpe, beating SPY by ~1.6% annually
+- Momentum 4W slightly outperforms (1.65 Sharpe) - simpler strategy, competitive results
+- Risk management adds stability (lower max DD) but slightly reduces returns
+- **Important**: These results exclude transaction costs
+
+### Walk-Forward Validation (15 windows)
+
+| Metric | Mean | Median | Std Dev | Min | Max |
+|--------|------|--------|---------|-----|-----|
+| **Sharpe Ratio** | 0.76 | 0.82 | 1.24 | -1.45 | 2.38 |
+| **Annual Return** | 12.4% | 13.7% | 18.2% | -28.3% | 41.2% |
+| **Win Rate** | 54.3% | 55.1% | 8.7% | 38.5% | 68.2% |
+
+**Key Findings:**
+- Performance is **regime-dependent**: strong in bull markets, weak in bear markets
+- High variance across windows (Sharpe std=1.24) indicates lack of robustness
+- Mean Sharpe of 0.76 is significantly lower than single test period (1.48)
+- 11 out of 15 windows are profitable (73% consistency)
+
+**Interpretation:** The single test period result (Sharpe 1.48) was partially lucky. True expected performance is closer to Sharpe 0.76, which is still positive but more modest.
 
 ---
 
@@ -395,13 +480,12 @@ Use the sidebar on the left to navigate between sections. Each page builds on th
 
 ## Contact & Resources
 
-**Author**: Thomas Remandet  
+**Author**: Thomas Remandet, 21422506  
 **Email**: thomas.remandet@unil.ch  
-**Institution**: HEC Lausanne - Master in Finance  
 **Course**: Advanced Programming 2025
 
 **Resources**:
-- GitHub: [Repository link]
+- GitHub: https://github.com/Thomas21422506/etf-ml-portfolio
 - Dashboard: `streamlit run dashboard.py`
 - Full Report: Available in repository
 
@@ -420,3 +504,4 @@ This project is an academic work for educational purposes.
 - **Tools**: Open-source Python ecosystem (pandas, scikit-learn, streamlit)
 - **Guidance**: Advanced Programming course instructors
 
+---
