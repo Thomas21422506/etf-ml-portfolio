@@ -62,19 +62,9 @@ This data science course project implements a machine learning-based weekly allo
    python3 main.py
 ```
    **Note**: Close pop-up chart windows (press Q or click X) to continue execution.
-
-5. **Launch dashboard**:
+4. **4. Or install dependencies list separately**
 ```bash
-   streamlit run dashboard.py
-   #or
-   python -m streamlit run dashboard.py
-```
-   The dashboard opens automatically at `http://localhost:8501`
-**First time**: Streamlit may prompt for an email address - simply press `Enter` to skip
-
-
-# 4. Or install dependencies list separately 
-pip install pandas
+ pip install pandas
 pip install numpy
 pip install scikit-learn
 pip install xgboost
@@ -83,7 +73,15 @@ pip install seaborn
 pip install streamlit
 pip install plotly
 pip install scipy
-
+```
+5. **Launch dashboard**:
+```bash
+   streamlit run dashboard.py
+   #or
+   python -m streamlit run dashboard.py
+```
+   The dashboard opens automatically at `http://localhost:8501`
+**First time**: Streamlit may prompt for an email address - simply press `Enter` to skip
 
 
 ---
