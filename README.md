@@ -116,7 +116,11 @@ etf-ml-portfolio/
 ├── main.py                      # Main execution pipeline
 ├── dashboard.py                 # Interactive Streamlit dashboard
 ├── requirements.txt             # Python dependencies
-├── README.md                    # This file
+├── README.md                    # Documentation
+├── PROPOSAL.md                  # Project proposal
+│
+├── data/                        # Source data
+│   └── DATA_PRICE_FINAL.csv    # ETF price data (2016-2025)
 │
 ├── src/                         # Source code modules
 │   ├── __init__.py
@@ -129,14 +133,16 @@ etf-ml-portfolio/
 │   └── utils.py                 # Helper functions and constants
 │
 └── outputs/                     # Generated results (created after main.py)
-    └── results/
-        ├── etf_features.csv              # Engineered features
-        ├── etf_targets.csv               # Binary targets (up/down)
-        ├── etf_weekly_returns.csv        # Weekly returns per ETF
-        ├── ml_model_performance.csv      # Model metrics (Accuracy, ROC-AUC, etc.)
-        ├── final_performance_results.csv # Strategy comparison (Sharpe, Return, etc.)
-        ├── walk_forward_results.csv      # Robustness analysis (15 windows)
-        └── all_strategy_returns.csv      # Weekly returns per strategy
+    ├── results/
+    │   ├── etf_features.csv              # Engineered features
+    │   ├── etf_targets.csv               # Binary targets (up/down)
+    │   ├── etf_weekly_returns.csv        # Weekly returns per ETF
+    │   ├── ml_model_performance.csv      # Model metrics (Accuracy, ROC-AUC, etc.)
+    │   ├── final_performance_results.csv # Strategy comparison (Sharpe, Return, etc.)
+    │   ├── walk_forward_results.csv      # Robustness analysis (15 windows)
+    │   └── all_strategy_returns.csv      # Weekly returns per strategy
+    │
+    └── figures/                  # Visualization charts (PNG files)
 ```
 
 ---
